@@ -17,14 +17,6 @@ import static ru.netology.data.DataGenerator.Registration.getRegisteredUser;
 import static ru.netology.data.DataGenerator.getRandomLogin;
 import static ru.netology.data.DataGenerator.getRandomPassword;
 
-// Активный. Валидные логин и пароль > Личный кабинет
-// Заблокирован. Валидные логин и пароль > Ошибка Ошибка! Пользователь заблокирован
-// Активный. Неверный логин > Ошибка Ошибка! Неверно указан логин или пароль
-// Активный. Неверный пароль > Ошибка Ошибка! Неверно указан логин или пароль
-// Активный. Пустой логин > Поле обязательно для заполнения
-// Активный. Пустой пароль > Поле обязательно для заполнения
-
-
 class AuthTest {
 
     @BeforeEach
@@ -101,6 +93,7 @@ class AuthTest {
         val registeredUser = getRegisteredUser("active");
 
         $("[data-test-id='login'] input").setValue(registeredUser.getLogin());
+        $(".button").click();
         $(withText("Поле обязательно для заполнения")).shouldBe(Condition.visible, Duration.ofSeconds(10));
     }
 }

@@ -74,11 +74,5 @@ public class DataGenerator {
         String login;
         String password;
         String status;
-
-        RegistrationDto(String login, String password, String status) {
-            this.login = login;
-            this.password = password;
-            this.status = status;
-        }
     }
 }
